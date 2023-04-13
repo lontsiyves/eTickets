@@ -8,7 +8,7 @@ namespace eTickets.Data.Services
     {
         Task<IEnumerable<Actor>> GetActors();
 
-        Actor GetById(int id);
+        Task<Actor> GetById(int id);
 
         void Add(Actor actor);
 

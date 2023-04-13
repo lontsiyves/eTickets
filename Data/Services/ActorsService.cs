@@ -32,9 +32,10 @@ namespace eTickets.Data.Services
             return res;
         }
 
-        public Actor GetById(int id)
+        public async Task<Actor> GetById(int id)
         {
-            throw new NotImplementedException();
+           var res = _context.Actors.FirstOrDefaultAsync(x => x.Id == id);
+            return res;
         }
 
         public Actor Updata(int id, Actor actor)
