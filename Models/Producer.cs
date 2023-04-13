@@ -7,7 +7,7 @@ namespace eTickets.Models
     {
 
 
-        [key]
+        [Key]
         public int Id { get; set; }
 
         public string FullName { get; set; }
@@ -15,5 +15,7 @@ namespace eTickets.Models
         public string Bio { get; set; }
 
         public string ProfilePictureURL { get; set; }
+
+        public List<Movie> Movies { get; set; }
     }
 }
