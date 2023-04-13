@@ -1,4 +1,4 @@
-﻿@model List<Actor>
+﻿@model IEnumerable<Actor>
 
 @{
     ViewData["Title"] = "List of Actors";
@@ -9,15 +9,15 @@
 
         <table class="table">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>
-                     Profil
+                    @Html.DisplayNameFor(model => model.profilePictureURL)
                     </th>
                        <th>
-                      Full Name
+                      @Html.DisplayNameFor(model => model.FullName)
                     </th>
                        <th>
-                       Biographie
+                     @Html.DisplayNameFor(model => model.Bio)
                     </th>
                 </tr>
             </thead>
