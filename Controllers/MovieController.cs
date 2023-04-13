@@ -4,20 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
-    public class ProducersController : Controller
+    public class MovieController : Controller
     {
-
         private readonly AppDbContext _context;
 
-        public ProducersController(AppDbContext context)
+        public MovieController(AppDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-
-            var data = _context.Producers.ToListAsync();
-            return View(data);
+           // var data = _context.Movies.Include(n => n.Cimema).OrderBy(n => n.Name).ToListAsync();
+            return View(/*data*/);
         }
     }
 }
