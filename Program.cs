@@ -1,12 +1,17 @@
 using eTickets.Data;
 using eTickets.Data.Services;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// ;
+var cs = "Server = myServerAddress; Port = 3306; Database = myDataBase; Uid = myUsername; Pwd = myPassword";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(/*options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"))*/);
+builder.Services.AddDbContextPool<AppDbContext>(optionsAction: options => options.UseMySql(cs, ServerVersion.AutoDetect(cs)));
 builder.Services.AddScoped<IActorServices, ActorsService>();
+
 
 
 var app = builder.Build();
